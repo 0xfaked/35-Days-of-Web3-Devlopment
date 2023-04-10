@@ -1,0 +1,79 @@
+# Day 2 notes
+
+### What is Ethereum :-
+
+Ethereum is a technology for building apps and organizations, holding assets, transacting and communicating without being controlled by a central authority. There is no need to hand over all your personal details to use Ethereum - you keep control of your own data and what is being shared. Ethereum has its own cryptocurrency, Ether, which is used to pay for certain activities on the Ethereum network.
+
+### [Why Ethereum is termed as `World Computer`](https://medium.com/@reyesale/ethereum-the-world-computer-fb7b58948280)
+
+The term "World Computer" refers to Ethereum's ability to function as a decentralized global network of computers that can execute smart contracts and store data in a transparent and secure way. This is made possible by Ethereum's blockchain technology, which allows for the creation and execution of decentralized applications (dApps). we cant use bitcoin to create and dapp its impossible, but in solidity(Ethereum) its possible .
+
+## What Is Ether?
+
+Ethereum requires resources to run. Because it is distributed, it is owned simultaneously by no one and everyone participating—but the resources it uses must be paid for. For instance, if a node is run in someone's home, that person is paying for electricity and components and doing the work to keep the node online. It makes sense to be able to pay them for the expenses, so Ethereum has a cryptocurrency designed for that purpose, ether (ETH).
+
+Ether is commonly confused with the platform itself—when you hear someone talk about Ethereum's price, they are referring to ether (ETH), not Ethereum. Ether is the payment method in the Ethereum Virtual Machine (EVM), used to [pay network participants](https://www.investopedia.com/terms/g/gas-ethereum.asp) for the expenses (and a little extra) they incur for securing the blockchain and validating transactions.
+
+### What are different types of accounts (EOAs vs contract accounts)
+
+EOA stands for Externally Owned Account, which is a basic account on the Ethereum blockchain that is owned and controlled by a user. A contract account, on the other hand, is a type of account that is controlled by a smart contract. It can hold and manage funds, and perform various functions based on the pre-written code of the contract.
+
+## **What's an Ethereum wallet?**
+
+Ethereum wallets are applications that let you interact with your Ethereum account. Think of it like an internet banking app – without the bank. Your wallet lets you read your balance, send transactions and connect to applications.
+
+You need a wallet to send funds and manage your ETH.
+
+Your wallet is only a tool for managing your Ethereum account. That means you can swap wallet providers at any time. Many wallets also let you manage several Ethereum accounts from one application.
+
+That's because wallets don't have custody of your funds, you do. They're just a tool for managing what's really yours.
+
+Wallets and Ethereum client :-
+wallet can’t change your  account balance its just an entity from where you can track your transaction history and can send funds to other addresses and cotracts.
+
+### Public key & Private Key :-
+
+public key is formed by private key by ECDSA Algorithm, private key signs the transaction and public key decrypts the msg or transaction. don’t make your private key public it will ruin you cause if bad actors got your private key they can login with your account and transfer all your funds to there accounts, and as you know the crypto transactions are Irreversible.
+
+### what is Gas :-
+
+When transaction Takes place  the validators takes some fee For validating the block(transaction) this fee is called gas, it is also used to use state functions and other use functions in smart contracts.
+
+### what is mining :-
+
+Mining in Ethereum is the process of adding new blocks to the blockchain by solving complex mathematical puzzles through computational power. In other words, miners use their computer hardware to perform calculations that verify and process transactions on the Ethereum network. These calculations require a significant amount of energy and resources, so miners are rewarded with newly created Ether (ETH) as an incentive for their efforts. Mining plays a crucial role in maintaining the security and decentralization of the Ethereum network, as it ensures that no single entity can control the blockchain. Hashing makes fraud easy to spot. But proof-of-work as a process was also a big deterrent to attacking the chain.
+
+### what is block explorer :-
+
+A block explorer is a tool that allows users to view and interact with the contents of a blockchain network. It enables users to search for transactions, addresses, and blocks within the network, as well as track the status of their own transactions. Block explorers provide transparency and accountability by allowing anyone to see the transaction history and current state of the network, making it a valuable tool for developers, investors, and enthusiasts alike.
+
+### What are different types of networks in ethereum (Mainnet vs Testnet) :-
+
+Ethereum is a blockchain-based decentralized platform that allows developers to build and deploy smart contracts and decentralized applications (dapps). There are two main types of networks in Ethereum:
+
+1. Mainnet: The Ethereum Mainnet is the production or live network that hosts the native Ether (ETH) cryptocurrency and where real transactions take place. It is the primary network that is used by developers and users for actual transactions and dapps.
+2. Testnet: Ethereum Testnets are alternative networks that are used for testing and experimentation purposes. There are several testnets available, including Rinkeby, Ropsten, and Kovan, which are commonly used by developers to test and deploy their smart contracts and dapps before launching them on the mainnet. Testnets allow developers to test their code without incurring any actual transaction costs or risking real funds.
+
+### what are EIPs :-
+
+EIPS stands for Ethereum Improvement Proposals. These are formal documents that describe proposed changes or additions to the Ethereum protocol. EIPS are submitted by members of the Ethereum community, including developers, researchers, and users, who believe that a change or addition to the protocol is necessary to improve its functionality, security, or efficiency
+
+### What are ERC Standards :-
+
+ERC standards are technical specifications that define how different types of tokens can be created and operate on the Ethereum blockchain. These standards ensure that tokens are created in a uniform and interoperable way, allowing developers to create new tokens that work seamlessly with existing tokens on the Ethereum network. ERC standards have become the foundation for many decentralized applications and smart contracts, and have played a significant role in the growth of the Ethereum ecosystem. There are currently several different ERC standards, each with its own set of rules and features, providing developers with a wide range of options for creating new digital assets. (” In simple way someone have already created an contract and new devloper don’t need to code from scratch he can use ERC Standards for there functionalities) simple!
+
+### What are ERC20 Standards :-
+
+The ERC-20 standard is a technical standard used for smart contracts on the Ethereum blockchain. ERC stands for Ethereum Request for Comment, and 20 is the proposal identifier. The standard provides a set of rules and functions that allow developers to create interoperable tokens on the Ethereum network, which can be easily exchanged and transferred between different wallets and platforms. The ERC-20 standard has become the most widely used token standard on Ethereum, and is supported by many wallets, exchanges, and other Ethereum-based applications.
+
+### What are ERC721 standards :-
+
+In short erc721 is used for nfts and The 721 standard defines a set of rules and functions that enable the creation of unique, indivisible, and non-interchangeable tokens, which can be used to represent assets such as digital art, collectibles, and in-game items. Unlike ERC-20 tokens, which are fungible and can be exchanged for each other, ERC-721 tokens are unique and cannot be replaced by another token. This uniqueness and scarcity have made ERC-721 tokens popular in the world of digital art and collectibles.
+
+### what is Turing Complete :-
+
+In practical terms, this means that a Turing complete programming language or system is powerful enough to solve a wide range of computational problems. It can process input data, make decisions, and generate output based on a set of rules and instructions. Being Turing complete is considered a necessary condition for a programming language or system to be able to support general-purpose computation, which is the ability to solve a wide range of computational problems, rather than being limited to a specific set of tasks.
+
+### what is smart contract :-
+
+A smart contract is a self-executing program that automatically enforces the terms of an agreement between parties. It is based on blockchain technology and allows for secure, transparent, and tamper-proof transactions without the need for intermediaries. Smart contracts are typically used in areas such as financial services, supply chain management, and digital identity verification.
