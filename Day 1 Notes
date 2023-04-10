@@ -1,0 +1,73 @@
+# Day 1 notes :-
+
+### Asymetric Cryptography :-
+
+Asymetric cryptography is so simple it follows as 
+
+take whatsapp as an example , and on whatsapp there is shreya and yamazaki suppose shreya has an important document or img and she only wants to send and viewed by yamazaki, so how will they do it? so heres the solution they will do it, Shreya and Yamazaki both have public keys and in this case those public keys are there Whatsapp numbers , and whatsapp has an algorithm that creates private key with there public key(number) now they both have private key , now shreya will encrypt that important img or docs to Yamazakis public key , and then yamazaki can decrypt that classified docs or img with his private key that wp has generated 
+
+Symetric cryptography :- 
+
+In symetric cryptography case shreya will encrypt that img or docs with her private key —> It will become cipher text —> it will decrypted by yamazakis private key. It is fast in execution incomparison to asymetric.
+
+Simple!
+
+### Elliptic curve cryptography (ECC) :-
+
+Elliptic curve cryptography (ECC) is a type of public-key cryptography that uses elliptic curves in the mathematical equations used to encrypt and decrypt data. It is known for its ability to provide the same level of security as traditional public-key cryptography with smaller key sizes, making it useful for mobile and embedded systems.
+
+### Programmable, Distributed, Decentralized, Immutable, Unanimous, Time-Stamped, etc. :-
+
+Programmable is smart contracts, means you can create a program on Blockchain.
+
+Distributed means there are decentralized database of transactions and timestamps of transactions.
+
+Decentralized means there is no centralized organisation like banks. every consumer is stakeholder in decentralized networks.
+
+Immutable means any validated transactions cannot be reversible.
+
+Unanimous means all network Participants agree to the validity each of the records
+
+Timestamps means record of timestamps recorded on block of transactions
+
+### Bitcoin whitepaper :-
+
+The Bitcoin white paper is a revolutionary document that fundamentally changed the way we think about money and the financial system. Written by the enigmatic Satoshi Nakamoto, it outlines the technology behind Bitcoin, which is a decentralized digital currency that operates without the need for a central authority, like a government or a bank.
+
+The white paper explains how Bitcoin transactions are verified and recorded on a public ledger called the blockchain, which is maintained by a network of users called miners. Miners compete to solve complex mathematical problems in order to add new transactions to the blockchain and are rewarded with newly minted Bitcoin as a result.
+
+One of the key features of Bitcoin is its ability to operate without a central authority, making it resistant to censorship and control by governments or other centralized organizations. This decentralized nature also makes it more secure, as there is no single point of failure that can be exploited by hackers or other bad actors.
+
+Overall, the Bitcoin white paper laid the foundation for a new era of financial innovation, and its impact will continue to be felt for years to come.
+
+### Bitcoins Double Spending Power :-
+
+meaning of double spending is like if you have 1 btc in your wallet and you are buying 2 iphones worth 1 btc each and while paying  that 2 btc you are spending that 1 btc and while the network processes your transaction you again spend 1 btc even if you don’t have it. 
+
+Bitcoins Double Spending Power
+
+Double-spending power is a potential issue with any type of digital currency, including Bitcoin. It refers to the ability to spend a single unit of currency twice, essentially creating more money out of thin air.
+
+In the case of Bitcoin, this is prevented through the use of blockchain technology, which creates a decentralized ledger of all transactions. Each transaction is verified and recorded by a network of users called miners, who compete to solve complex mathematical problems in order to add new transactions to the blockchain. Once a transaction is confirmed and added to the blockchain, it becomes immutable and cannot be reversed or altered.
+
+This means that if someone attempts to spend the same Bitcoin twice, the network will recognize the double-spending attempt and reject the transaction. This is one of the key features of Bitcoin that makes it resistant to fraudulent activity and manipulation.
+
+Overall, the prevention of double-spending is crucial to the success and trustworthiness of any digital currency, and Bitcoin's use of blockchain technology ensures that it remains a reliable and secure form of payment.
+
+### consensus algorithms :-
+
+there are mainly 2 types of consensus algorithms are being used in web3 or blockchain space 
+
+1. proof of work :- Bitcoin uses this pow algorithm where it uses computational(cpu) power to solve complex mathematical equations for validating the blocks for transaction . One of the Disadvantages of POW consensus is that is uses and burns alot of  electricity , thats why this algorithm is inefficient in resource management.
+
+1. proof of stake :- Ethereum recently shifted from Proof of work to proof of stake Consensus .
+
+proof of stakes basically means validators stake some amount in case of ethereum (32 eths) are being staked by single validators, and if any validator tried to manipulate the blockhash while mining , then ethereum will never return that 32 eth to validator and will also remove from its mining activity.
+
+### What is Bitcoin Mining and how ASIC is better than regular mining rig :-
+
+Bitcoin mining is the process by which new bitcoins are released into circulation. It involves using specialized software and hardware to solve complex mathematical equations and validate transactions on the Bitcoin network. One method of mining is the use of ASIC (Application-Specific Integrated Circuit) which is designed specifically for Bitcoin mining. Unlike regular mining where CPUs or GPUs can be used to mine, ASICs are more efficient and powerful, allowing for faster and more efficient mining. In fact, they can mine Bitcoin up to 100 times faster than regular mining rigs. This is because ASICs are designed solely to perform the calculations needed for Bitcoin mining, while CPUs and GPUs are designed for general computing purposes. Therefore, ASICs are the preferred mining method for Bitcoin miners who want to maximize their profits and stay ahead of the competition.
+
+### what is 51% attack :-
+
+In consensus algorithm of both POW & POS  if the malicious actor gains access to more than 50% of network he can manipulate the ledger and can perform attacks like “Double Spending”  to steal the money.
