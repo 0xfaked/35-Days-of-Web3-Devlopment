@@ -1,0 +1,32 @@
+from 0:00 to 2:05 is all theory and i don't think we need notes of that part .
+
+Basic understandings of solidity from 2:05 till 2:30 :-
+
+
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.8; // latest one is 0.8.19
+
+contract SimpleStorage{
+    // datatypes = boolean(true or false), uint(positive numbers), int(negative and positive numbers) , address(uses for addresses), strings( uses for representing words and names ) bytes ( representing how many bytes we needed).
+    
+    uint public favoritenumber;
+    address myaddress = msg.sender;
+
+    function store(uint _favoriteNumber) public {
+        favoritenumber = _favoriteNumber;
+    }
+    function getfavoritenumber() public view returns (uint ){
+        return favoritenumber;    }
+    
+    function getmyaddress() public view returns(address){
+        return myaddress;
+    }
+    //view and pure functions :- view functions :- a function that is a view function that reads the state of a blockchain and doesn't change the state of blockchain. it requires less gas.
+    // pure functions :- pure function also disallows any change in blockchain and additionaly disallows you to read from blockchain. we uses it when a function don't need to look for any data in blockchain , and have to do some maths or other functions tasks
+    //
+    //function Visibility specifiers :- Public:- anyone from anywhere can call this function and retrieve the value stored in var, 
+    //private :- Private means this contract can only call this funciton or var,
+    //external :- contracts outside of this contract can call this functions
+    //internal :- only this contract and its children contracts can call this functions.
+    //default visibility in solidity is Internal , so remember it.
+}
