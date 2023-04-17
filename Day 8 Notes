@@ -1,0 +1,39 @@
+//SPDX-License-Identifier: MIT     /Specified out license Identifier
+
+pragma solidity ^0.8.8;     //here we Specified version of solidity that we want to use
+import "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";  // here we have directly imported a .sol file from github from import statement
+contract FundMe{ //named our contract as FundMe
+    
+    uint public minimumusd = 50 * 1e18; //here we are converting 50 usd to 18 decimals cause eth = 1e18 means it haves 18 values.
+
+    address[] public funders; // created an array for saving address who funded the contract
+
+    function fund() public payable{  // created a function name fund, which is public and have payable capability.
+
+    require(getConversionRate(msg.value) >= minimumusd, "didn't send enough"); // we added the logic which is whatever our msg.value is that should be greater than or equal to our minimumusd which is "50", and if not revert and send message " didn't send enough "
+    funders.push(msg.sender); // push or send the address which funded the contract to the funders array.
+}
+
+    function getPrice() public view returns(uint){ // public visibility and view func returning uint var.
+        //ABI :- 
+        //Address of contract :- 0x694AA1769357215DE4FAC081bf1f309aDC325306
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306); // using functionality of aggregatorv3Interface contract , here we are saying "PriceFeed" is equal to aggregatorv3interface contract and address which means pricefeed can uses it functionality.
+        (, int256 Price, , , ) = priceFeed.latestRoundData();// converted price to pricefeed.latestRoundData(); function. 
+        //ETH in terms of usd
+        //msg.value will have 18 decimal places cause ether have 18 zeros in wei.
+        return uint (Price * 1e10); // return the value in 10 decimals.
+
+}
+
+    function getVersion() public view returns(uint){ // created a getversion function which is public and viewable and returns uint.
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);// using functionality of aggregatorv3Interface contract , here we are saying "PriceFeed" is equal to aggregatorv3interface contract and address which means pricefeed can uses it functionality.
+        return priceFeed.version();// In long form it means Aggregatorv3Interface.version(), but we uses agv3i as "PriceFeed" its simple as that.
+    }
+
+    function getConversionRate(uint _ethAmount) public view returns (uint) { // taken the input of _ethamount 
+        uint ethPrice = getPrice(); // converted all the getprice() functions functionality to ethPrice.
+        uint ethAmountInUsd = (ethPrice * _ethAmount) / 1e18;// i don't have understanded this concept i think here we are doing calculations of ethpricefeed and usd value.
+        return ethAmountInUsd; // returning the results of our calculations.
+
+    }
+}
