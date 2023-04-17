@@ -1,0 +1,67 @@
+//What we want is :- 1.Get funds from users
+//2. Withdraw funds
+//3. set a minimum funding value in usd.
+
+
+
+
+//SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.8;
+
+contract FundMe{
+    
+    uint public minimumusd = 50;
+    function fund() public payable{ // payable keyword describes that this function can used as a payment interface.
+    // want to be able to set a minimum fund amount in USD.
+
+    require(msg.value >= minimumusd, "didn't send enough"); // Require keyword means checking the logic or ("condition") and revert the transaction if it is false, It is commonly used for input validation and to ensure contract constraints are met.
+}
+    function withdraw() private {}
+
+} 
+
+// both wallets and contracts can hold User Funds in them, contract haves an account address as a wallet
+/*smart contracts are unable to connect with external systems or any off-chian resources or data. here the oracles takes place
+centralized oracles are a point of failure.  what we need is a Decentralized Oracle network, so simply it takes offchain data for example
+prices of usdc coins so smart contracts don't know what the price of usdc in the market and it can't take the information of price from one single
+api or an entity if it does it is not decentralized and can be tempered, so it takes data from multiple sources and exchanges and sends it in a single transaction to a contract and companies and smart contracts need to pay the oracle service provider via oracle gas fees, simple.
+
+//here we have a chainlink contract that gives us value of bitcoin via decentralized oracles in usd. we can use it in Sepolia testnet too.
+
+/**
+
+
+pragma solidity ^0.8.7;
+
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+
+contract PriceConsumerV3 {
+    AggregatorV3Interface internal priceFeed;
+
+    /**
+     * Network: Sepolia
+     * Aggregator: BTC/USD
+     * Address: 0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43
+     */
+//    constructor() {
+//        priceFeed = AggregatorV3Interface(//
+//            0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43
+//        );
+//    }
+//
+//    /**
+//     * Returns the latest price.
+    
+//    function getLatestPrice() public view returns (int) {
+//        // prettier-ignore
+//        (
+//            /* uint80 roundID */,
+//            int price,
+//            /*uint startedAt*/,
+//            /*uint timeStamp*/,
+//            /*uint80 answeredInRound*/
+//        ) = priceFeed.latestRoundData();
+//        return price;
+//    }
+//}
