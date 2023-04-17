@@ -1,16 +1,7 @@
-# Day 6 Notes
-
-### Lesson no 3 , Remix Storage Factory :-
-
-Here are 3 contracts that used in this lesson :-
-
-First “SimpleStorage.sol” 
-
-```solidity
 // I'm a comment!
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.8;
+pragma solidity ^0.8.8; //it means it will only uses version above 0.8.8
 // pragma solidity ^0.8.0;
 // pragma solidity >=0.8.0 <0.9.0;
 
@@ -18,26 +9,26 @@ contract SimpleStorage {
 
     uint256 favoriteNumber;
 
-    struct People {
+    struct People { 
         uint256 favoriteNumber;
         string name;
-    }
+    }// created a struct of favoritenumber and name.
     // uint256[] public anArray;
-    People[] public people;
+    People[] public people; // created an array and using People struct.
 
-    mapping(string => uint256) public nameToFavoriteNumber;
+    mapping(string => uint256) public nameToFavoriteNumber; //created an var named "nametofavoritenumber" and mapped the string to uint, you know what does mapping means(linking them with eachother).
 
-    function store(uint256 _favoriteNumber) public virtual {
-        favoriteNumber = _favoriteNumber;
+    function store(uint256 _favoriteNumber) public virtual { //created an function and taken uint input and set the function to virtual it means other contract can override this function
+        favoriteNumber = _favoriteNumber; // specifying favoritenumber will be updated to input favoritenumber. after the function executed.
     }
     
     function retrieve() public view returns (uint256){
         return favoriteNumber;
-    }
+    }// cause our favoritenumber is not public we can't see it directly, so here we created a funciton and returning the value of Global var Favoritenumber
 
-    function addPerson(string memory _name, uint256 _favoriteNumber) public {
-        people.push(People(_favoriteNumber, _name));
-        nameToFavoriteNumber[_name] = _favoriteNumber;
+    function addPerson(string memory _name, uint256 _favoriteNumber) public {// taking an input of _name and _favoritenumber with public visibility
+        people.push(People(_favoriteNumber, _name));// storing the values with the help of struct"People" In an created array people.
+        nameToFavoriteNumber[_name] = _favoriteNumber; //mapping the name to the number , if we called name then we can also get the favoritenumber of that person.
     }
 }
 ```
