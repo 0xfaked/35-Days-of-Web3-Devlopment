@@ -1,0 +1,94 @@
+# Day 6 Notes
+
+### Lesson no 3 , Remix Storage Factory :-
+
+Here are 3 contracts that used in this lesson :-
+
+First “SimpleStorage.sol” 
+
+```solidity
+// I'm a comment!
+// SPDX-License-Identifier: MIT
+
+pragma solidity 0.8.8;
+// pragma solidity ^0.8.0;
+// pragma solidity >=0.8.0 <0.9.0;
+
+contract SimpleStorage {
+
+    uint256 favoriteNumber;
+
+    struct People {
+        uint256 favoriteNumber;
+        string name;
+    }
+    // uint256[] public anArray;
+    People[] public people;
+
+    mapping(string => uint256) public nameToFavoriteNumber;
+
+    function store(uint256 _favoriteNumber) public virtual {
+        favoriteNumber = _favoriteNumber;
+    }
+    
+    function retrieve() public view returns (uint256){
+        return favoriteNumber;
+    }
+
+    function addPerson(string memory _name, uint256 _favoriteNumber) public {
+        people.push(People(_favoriteNumber, _name));
+        nameToFavoriteNumber[_name] = _favoriteNumber;
+    }
+}
+```
+
+Second “StorageFactory.sol“
+
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
+import "./SimpleStorage.sol";// Importing function is great cause you don't need to copy paste the whole codebase above contract.
+// A single Solidity file can contain multiple contracts by placing each contract below the pragma solidity statement and above the starting of the next contract.
+
+contract StorageFactory{
+    SimpleStorage[] public simpleStorageArray; 
+
+    function createSimpleStorageContract() public {
+        SimpleStorage SimpleStorage = new SimpleStorage();
+        simpleStorageArray.push(SimpleStorage);
+    
+    }
+    function sfStore(uint _simpleStorageIndex, uint _simpleStorageNumber ) public {
+    SimpleStorage simpleStorage = simpleStorageArray[_simpleStorageIndex];    
+    simpleStorage.store(_simpleStorageNumber);
+    }
+
+    function sfGet(uint _simpleStorageIndex) public view returns (uint){
+        SimpleStorage simpleStorage = simpleStorageArray[_simpleStorageIndex];
+        return simpleStorage.retrieve();
+    }
+}
+```
+
+Third “ExtraStorage.sol”
+
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+
+import "./SimpleStorage.sol";
+
+contract ExtraStorage is SimpleStorage { // it can now inherit all the functionality of SimpleStorage Contract.
+    //+5
+    //override
+    //virtual override.:- If you have to override a function of a contract you need to add Virtual keyword infront of it. 
+    // and override keyword in front of your new function that you want to override with.
+
+    function store(uint _favoriteNumber) public override  {
+        favoriteNumber = _favoriteNumber + 5 ;
+    }
+
+}
+```
+
+f
