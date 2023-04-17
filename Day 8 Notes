@@ -37,3 +37,6 @@ contract FundMe{ //named our contract as FundMe
 
     }
 }
+
+
+// Library :- we uses library for doing math heavy and repeated tasks that can be moved to library and can used in contracts with "Import" Statement. it saves alot of gas and space from our main contract.
