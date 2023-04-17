@@ -1,0 +1,45 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.8; // latest one is 0.8.19
+
+contract SimpleStorage{
+    // datatypes = boolean(true or false), uint(positive numbers), int(negative and positive numbers) , address(uses for addresses), strings( uses for representing words and names ) bytes ( representing how many bytes we needed).
+    
+    struct People{ //You can think of a struct like a container that holds different pieces of data that are related to each other. For example, if you were building a smart contract for a bank, you might define a struct called "Account" that has fields for the account holder's name, account number, balance, and other relevant information.
+        string name;
+        uint favoritenumber;
+        
+        
+    //here we created  a struct first of uint and then string,
+    }
+
+mapping(string => uint) public nameToFavoriteNumber; // In a simple way what we have done here is simply created a mapping & tells the contract that the value of string is attached to uint so if string is called uint will also be called in that function. 
+
+    People[] public people; //here we created an array of People struct with the visibility of public and named this array as people, we represent an array with this "[]" 
+    
+//    people[3] public People; // it is a fixez sized array.
+//    people[] public People; // it is a dynamic sized array.
+
+    function addPerson(string memory /* we added memory key word here cause the "_name " is going to stay temporary in this fucntion */_name, uint _favoritenumber) public {
+        people.push(People( _name , _favoritenumber));
+        nameToFavoriteNumber[_name ] = _favoritenumber;
+
+    //here we created a function name "addPerson" then we take input of string("_name") and uint("_favoritenumber") with the visibility of public 
+    // In the second line we said that people.push means push the input we have taken from this function to struct("People").
+    }
+    
+    //Basic Solidity Errors & Warnings :- In solidity warnings are highlighted by yellow notch , warnings won't stop your code form working but its usually a good idea to check them out,
+    // Errors in solidity means something is broken in the code and it won't run your code so you need to check out what is broken  and fix it.
+
+    //Basic Solidity Memory, storage, & Calldata :- 
+    //structs, arrays & mappings are needed to be given memory or calldata when adding them to different functions & parameters.
+    /*In Solidity, there are several ways to store and access data, depending on how the data is used and how long it needs to be stored. Here are six common ways to store and access data in Solidity:
+
+Storage: Storage refers to the persistent storage on the blockchain, where data is stored permanently. State variables are stored in storage, as they need to be accessed and modified between different function calls.
+Memory: Memory refers to the temporary storage used during the execution of a function. Local variables and function parameters are stored in memory, as they are only needed for the duration of the function call and are not required to persist on the blockchain.
+Calldata: Calldata is a special type of memory that is read-only and used to store function arguments and return values during function calls. Calldata is useful for reducing the gas cost of function calls, as it avoids copying data unnecessarily. */
+
+    // Basic solidity Mappings :- A mapping is a data structure where a key is "mapped" to a single value.
+
+
+
+}
