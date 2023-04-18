@@ -1,0 +1,64 @@
+//SPDX-License-Identifier: MIT     
+
+pragma solidity ^0.8.8;     //here we Specified version of solidity that we want to use
+import "./PriceConverter.sol";
+contract FundMe{ //named our contract as FundMe
+    using PriceConverter for uint;
+    address public owner;
+    
+    uint public minimumusd = 50 * 1e18; //here we are converting 50 usd to 18 decimals cause eth = 1e18 means it haves 18 values.
+
+    address[] public funders; // created an array for saving address who funded the contract
+    mapping (address => uint) public addressToAmountFunded; // mapped our address to uint
+    constructor(){// constructor is immediately called when we deploy the contract , it is the first thing that get executed.
+    owner = msg.sender; // setted owner who deployes this contract.
+    }
+    function fund() public payable{  // created a function name fund, which is public and have payable capability.
+
+    require(msg.value.getConversionRate() <= minimumusd, "didn't send enough"); // we added the logic which is whatever our msg.value is that should be greater than or equal to our minimumusd which is "50", and if not revert and send message " didn't send enough "
+    funders.push(msg.sender); // push or send the address which funded the contract to the funders array.
+    addressToAmountFunded[msg.sender] += msg.value; // joined both address(msg.sender) & price(msg.value)
+}
+
+    function withdraw() public onlyOwner { // added onlyOwner as a modifier it is explained below!.
+        //require(msg.sender == owner, "sender is not owner!"); // double equals means it checks the logic .
+        //starting index, ending index, step amount .
+        for (uint funderIndex = 0; funderIndex < funders.length; funderIndex = funderIndex + 1) // created a for loop first we started an funderIdex with value 0, then put our conditions such as funderslength should be greater than 1 , and fundersIndex ++.
+        {
+            address funders = funders[funderIndex];
+            addressToAmountFunded[funders] = 0;
+        }
+         
+        funders = new address[](0);// created an array with new address every time.
+/*
+        //there are actually 3 ways we can send funds from contract to addresses.
+        //1. transfer , 2.call, 3. send.
+
+
+        //msg.sender = address who executed this funciton
+        //payable(msg.sender) = payable address 
+
+        //transfer
+        payable(msg.sender).transfer(address(this).balance); // .transfer automatically revert the transaction if it failed.
+
+        //send
+        bool sendSuccess = payable(msg.sender).send(address(this).balance);
+        require(sendSuccess, "send failed"); // .send will only revert transaction if we added this require statement and otherwise it will not revert.
+
+        //call :- it is rarely used statement. it is incredibly powerful.
+        (bool callSuccess, bytes memory dateReturned) = payable (msg.sender).call{value : address(this).balance}("");
+        require(callSuccess, "call Failed");
+
+*/
+//CONSTRUCTOR :-
+
+
+    }
+
+    modifier onlyOwner { 
+        require(msg.sender == owner, "sender is not owner!");
+        _;// it means execute the function code after checking the conditions.
+    }// suppose you want to have same line of functionality or logic in 10 places you can create a modifier assign it a name and write logic inside of it and place it infront of your function simple!
+
+    
+}
