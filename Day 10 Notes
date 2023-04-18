@@ -1,0 +1,38 @@
+# Day 10 Notes
+
+Fundme.sol examples :-
+
+receive() external  payable {
+        fund();        
+}// receive function is used when someone calls contract without data in it, and when someone calls it it get executed.
+    fallback() external  payable {
+        fund();
+    }// when an unidentified data or functions is sended or transacted to the contract fallback function get executed, we can specify what we have execute in fallback and receive function. 
+}
+
+FallbackExample.sol code :-
+
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+
+contract FallbackExample{
+        uint public result;
+
+        receive() external payable {
+            result = result + 1 ;
+        }// receive function get iniated when someone send a transaction to the contract 
+        fallback() external payable {
+             result = 5;
+        }
+        /* Fallback function explained :-
+
+        is msg.data empty?
+            /       \
+          yes       no
+         /    \
+    receive()  fallback()
+     /     \          
+    yes     no     
+    /         \    
+   receive()   fallback()   */
+}
