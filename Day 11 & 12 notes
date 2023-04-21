@@ -1,0 +1,220 @@
+# Day 11 & 12 notes
+
+### Lesson 5: Ethers.js Simple:-
+
+Error and issues in solidity :- 
+
+when you get errors try to tinker , fix it with yourself learn how does that shit works ,etc. 
+
+& Limit your tinkering and triaging for 10 minutes & if its not workout find the answers from chatgpt & from github repo of FCC.
+
+On forums ask valid questions and format your questions well.
+
+### 3 steps to solve any coding problem :-
+
+1 .Tinker and Experiement.
+
+1. Explore Documentations.
+2. Doing a web search or ask chatGpt 
+
+### Secureum (Ethereum 101) :-
+
+Block 4
+
+1. Memory is a linear byte-array addressable at a byte-level and is volatile. All locations are well-defined initially as zero. This is accessed with MLOAD, MSTORE and MSTORE8 instructions.
+2. Storage is a 256-bit to 256-bit key-value store. Unlike memory, which is volatile, storage is non-volatile and is maintained as part of the system state. All locations are well-defined initially as zero. This is accessed with SLOAD/SSTORE instructions.
+3. Calldata is a read-only byte-addressable space where the data parameter of a transaction or call is held. This is accessed with CALLDATASIZE/CALLDATALOAD/CALLDATACOPY instructions.
+4. EVM does not follow the standard von Neumann architecture. Rather than storing program code in generally accessible memory or storage, it is stored separately in a virtual ROM accessible only through a specialized instruction.
+5. EVM uses big-endian ordering where the most significant byte of a word is stored at the smallest memory address and the least significant byte at the largest
+6. EVM instruction set can be classified into 11 categories:
+    1. Stop and Arithmetic Operations
+    2. Comparison & Bitwise Logic Operations
+    3. SHA3
+    4. Environmental Information
+    5. Block Information
+    6. Stack, Memory, Storage and Flow Operations
+    7. Push Operations
+    8. Duplication Operations
+    9. Exchange Operations
+    10. Logging Operations
+    11. System Operations
+7. Stop and Arithmetic Operations (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0x00 STOP 0 0 Halts execution
+    2. 0x01 ADD 2 1 Addition operation
+    3. 0x02 MUL 2 1 Multiplication operation
+    4. 0x03 SUB 2 1 Subtraction operation
+    5. 0x04 DIV 2 1 Integer division operation
+    6. 0x05 SDIV 2 1 Signed integer division operation (truncated)
+    7. 0x06 MOD 2 1 Modulo remainder operation
+    8. 0x07 SMOD 2 1 Signed modulo remainder operation
+    9. 0x08 ADDMOD 3 1 Modulo addition operation
+    10. 0x09 MULMOD 3 1 Modulo multiplication operation
+    11. 0x0a EXP 2 1 Exponential operation
+    12. 0x0b SIGNEXTEND 2 1 Extend length of two’s complement signed integer
+8. Comparison & Bitwise Logic Operations (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0x10 LT 2 1 Less-than comparison
+    2. 0x11 GT 2 1 Greater-than comparison
+    3. 0x12 SLT 2 1 Signed less-than comparison
+    4. 0x13 SGT 2 1 Signed greater-than comparison
+    5. 0x14 EQ 2 1 Equality comparison
+    6. 0x15 ISZERO 1 1 Simple not operator
+    7. 0x16 AND 2 1 Bitwise AND operation
+    8. 0x17 OR 2 1 Bitwise OR operation
+    9. 0x18 XOR 2 1 Bitwise XOR operation
+    10. 0x19 NOT 1 1 Bitwise NOT operation
+    11. 0x1a BYTE 2 1 Retrieve single byte from word
+    12. 0x1b SHL 2 1 Left shift operation
+    13. 0x1c SHR 2 1 Logical right shift operation
+    14. 0x1d SAR 2 1 Arithmetic (signed) right shift operation
+9. SHA3 (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0x20 SHA3 2 1 Compute Keccak-256 hash
+10. Environmental Information (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0x30 ADDRESS 0 1 Get address of currently executing account
+    2. 0x31 BALANCE 1 1 Get balance of the given account
+    3. 0x32 ORIGIN 0 1 Get execution origination address
+    4. 0x33 CALLER 0 1 Get caller address
+    5. 0x34 CALLVALUE 0 1 Get deposited value by the instruction/transaction responsible for this execution
+    6. 0x35 CALLDATALOAD 1 1 Get input data of current environment
+    7. 0x36 CALLDATASIZE 0 1 Get size of input data in current environment
+    8. 0x37 CALLDATACOPY 3 0 Copy input data in current environment to memory
+    9. 0x38 CODESIZE 0 1 Get size of code running in current environment
+    10. 0x39 CODECOPY 3 0 Copy code running in current environment to memory
+    11. 0x3a GASPRICE 0 1 Get price of gas in current environment
+    12. 0x3b EXTCODESIZE 1 1 Get size of an account’s code
+    13. 0x3c EXTCODECOPY 4 0 Copy an account’s code to memory
+    14. 0x3d RETURNDATASIZE 0 1 Get size of output data from the previous call from the current environment
+    15. 0x3e RETURNDATACOPY 3 0 Copy output data from the previous call to memory
+    16. 0x3f EXTCODEHASH 1 1 Get hash of an account’s code
+11. Block Information (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0x40 BLOCKHASH 1 1 Get the hash of one of the 256 most recent complete blocks
+    2. 0x41 COINBASE 0 1 Get the block’s beneficiary address
+    3. 0x42 TIMESTAMP 0 1 Get the block’s timestamp
+    4. 0x43 NUMBER 0 1 Get the block’s number
+    5. 0x44 DIFFICULTY 0 1 Get the block’s difficulty
+    6. 0x45 GASLIMIT 0 1 Get the block’s gas limit
+12. Stack, Memory, Storage and Flow Operations (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0x50 POP 1 0 Remove item from stack
+    2. 0x51 MLOAD 1 1 Load word from memory
+    3. 0x52 MSTORE 2 0 Save word to memory
+    4. 0x53 MSTORE8 2 0 Save byte to memory
+    5. 0x54 SLOAD 1 1 Load word from storage
+    6. 0x55 SSTORE 2 0 Save word to storage
+    7. 0x56 JUMP 1 0 Alter the program counter
+    8. 0x57 JUMPI 2 0 Conditionally alter the program counter
+    9. 0x58 PC 0 1 Get the value of the program counter prior to the increment corresponding to this instruction
+    10. 0x59 MSIZE 0 1 Get the size of active memory in bytes
+    11. 0x5a GAS 0 1 Get the amount of available gas, including the corresponding reduction for the cost of this instruction
+    12. 0x5b JUMPDEST 0 0 Mark a valid destination for jumps. This operation has no effect on machine state during execution.
+13. Push Operations (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0x60 PUSH1 0 1 Place 1 byte item on stack
+    2. 0x61 PUSH2 0 1 Place 2-byte item on stack
+    3. PUSH3, PUSH4, PUSH5…PUSH31 place 3, 4, 5..31 byte items on stack respectively
+    4. 0x7f PUSH32 0 1 Place 32-byte (full word) item on stack
+14. Duplication Operations (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0x80 DUP1 1 2 Duplicate 1st stack item
+    2. DUP2, DUP3..DUP15 duplicate 2nd, 3rd..15th stack item respectively
+    3. 0x8f DUP16 16 17 Duplicate 16th stack item
+15. Exchange Operations (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0x90 SWAP1 2 2 Exchange 1st and 2nd stack items
+    2. 0x91 SWAP2 3 3 Exchange 1st and 3rd stack items
+    3. SWAP3, SWAP4..SWAP15 exchange 1st and 4th..15th stack items respectively
+    4. 0x9f SWAP16 17 17 Exchange 1st and 17th stack items
+16. Logging Operations (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0xa0 LOG0 2 0 Append log record with no topics
+    2. 0xa1 LOG1 3 0 Append log record with one topic
+    3. 0xa2 LOG2 4 0 Append log record with two topics
+    4. 0xa3 LOG3 5 0 Append log record with three topics
+    5. 0xa4 LOG4 6 0 Append log record with four topics
+17. System Operations (Opcode, Mnemonic, Stack items removed, Stack items placed, Description):
+    1. 0xf0 CREATE 3 1 Create a new account with associated code
+    2. 0xf1 CALL 7 1 Message-call into an account
+    3. 0xf2 CALLCODE 7 1 Message-call into this account with an alternative account’s code
+    4. 0xf3 RETURN 2 0 Halt execution returning output dat
+    5. 0xf4 DELEGATECALL 6 1 Message-call into this account with an alternative account’s code, but persisting the current values for sender and value
+    6. 0xf5 CREATE2 4 1 Create a new account with associated code
+    7. 0xfa STATICCALL 6 1 Static message-call into an account
+    8. 0xfd REVERT 2 0 Halt execution reverting state changes but returning data and remaining gas
+    9. 0xfe INVALID ∅ ∅ Designated invalid instruction
+    10. 0xff SELFDESTRUCT 1 0 Halt execution and register account for later deletion
+18. Gas costs for different instructions are different depending on their computational/storage load on the client. Examples are:
+    1. STOP, INVALID and REVERT are 0 gas
+    2. Most arithmetic, logic and stack operations are 3-5 gas
+    3. CALL*, BALANCE and EXT* are 2600 gas
+    4. MLOAD/MSTORE/MSTORE8 are 3 gas
+    5. SLOAD is 2100 gas and SSTORE is 20,000 gas to set a storage slot from 0 to non-0 and 5,000 gas otherwise
+    6. CREATE is 32000 gas and SELFDESTRUCT is 5000 gas
+19. A transaction reverts for different exceptional conditions such as running out of gas, invalid instructions etc. in which case all state changes made so far are discarded and the original state of the account is restored as it was before this transaction executed.
+20. A transaction with a contract address destination has the contract’s function target and the required arguments in the data field of the transaction. These are encoded according to the Application Binary Interface (ABI):
+
+### Secureum (Ethereum 101) :-
+
+Block 5
+
+1. Application Binary Interface (ABI): The Contract Application Binary Interface (ABI) is the standard way to interact with contracts in the Ethereum ecosystem, both from outside the blockchain and for contract-to-contract interaction.
+    1. Interface functions of a contract are strongly typed, known at compilation time and static.
+    2. Contracts will have the interface definitions of any contracts they call available at compile-time.
+2. Function Selector: The first four bytes of the call data for a function call specifies the function to be called.
+    1. It is the first (left, high-order in big-endian) four bytes of the Keccak-256 hash of the signature of the function.
+    2. The signature is defined as the canonical expression of the basic prototype without data location specifier, i.e. the function name with the parenthesised list of parameter types. Parameter types are split by a single comma - no spaces are used.
+    3. Function Arguments: The encoded arguments follow the function selector from the fifth byte onwards.
+3. Block explorers: are portals that allow anyone to see real-time data on blocks, transactions, accounts, contract interactions etc. A popular Ethereum block explorer is [etherscan.io](http://etherscan.io/).
+4. Mainnet: Short for "main network," this is the main public Ethereum blockchain. There are other Ethereum “testnets” where protocol or smart contract developers test their protocol upgrades or contracts. While mainnet uses real ETH, testnets use test ETH that can be obtained from faucets. The popular testnets are:
+    1. Görli: A proof-of-authority (a small number of nodes are allowed to validate transactions and create blocks) testnet that works across clients
+    2. Kovan: A proof-of-authority testnet for those running OpenEthereum clients
+    3. Rinkeby: A proof-of-authority testnet for those running Geth client
+    4. Ropsten: A proof-of-work testnet. This means it's the best representation of mainnet Ethereum
+5. Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, including core protocol specifications, client APIs, and contract standards. Standards Track EIPs are separated into a number of types: (See [here](https://eips.ethereum.org/))
+    1. Core: Improvements requiring a consensus fork as well as changes that are not necessarily consensus critical but may be relevant to “core dev” discussions
+    2. Networking: Includes improvements around devp2p and Light Ethereum Subprotocol, as well as proposed improvements to network protocol specifications of whisper and swarm
+    3. Interface: Includes improvements around client API/RPC specifications and standards, and also certain language-level standards like method names and contract ABIs. The label “interface” aligns with the interfaces repo and discussion should primarily occur in that repository before an EIP is submitted to the EIPs repository
+    4. ERC: Application-level standards and conventions, including contract standards such as token standards (ERC-20), name registries, URI schemes, library/package formats, and wallet formats
+    5. Meta: Describes a process surrounding Ethereum or proposes a change to (or an event in) a process
+    6. Informational: Describes a Ethereum design issue, or provides general guidelines or information to the Ethereum community, but does not propose a new feature
+6. Eth2 or Ethereum 2.0: refers to a set of interconnected upgrades that will make Ethereum more scalable, more secure, and more sustainable (See [here](https://ethereum.org/en/eth2/))
+7. Immutable code: Once a contract's code is deployed, it becomes immutable (with exceptions noted below). Standard software development practices that rely on being able to fix bugs and add new features to deployed code do not apply here. This represents a significant security challenge for smart contract development. There are three exceptions:
+    1. The modified contract can be deployed at a new address (and old state carried over) but all interacting entities should be notified/enabled to interact with the updated contract at the new address. This is typically considered impractical.
+    2. The modified contract can be deployed as a new implementation in a proxy pattern where the proxy points to the modified contract after the update. This is the most commonly used approach to update/add functionality.
+    3. CREATE2 opcode allows updating in place using init_code
+8. Web3: is a permissionless, trust-minimized and censorship-resistant network for transfer of value and information.
+    1. The popular approach to realise Web3 is to build it over a foundation of peer-to-peer network of nodes for compute, communication and storage.
+    2. In the Ethereum ecosystem, this is a combination of the Ethereum blockchain, Waku (previously Whisper) and Swarm respectively.
+    3. Privacy and anonymity are big motivating factors in Web3.
+    4. Most of the foundational security design principles and development practices from Web2 still apply to Web3. But Web3 security is indeed a paradigm shift along many frontiers.
+9. Languages: Web2 programming languages such as JavaScript, Go, Rust and Nim are used extensively in Web3. But the entire domain of smart contracts is new and specific to Web3. Languages such as Solidity and Vyper were created exclusively for Web3.
+10. On-chain vs Off-chain: Smart contracts are “on-chain” Web3 components and they interact with “off-chain” components that are very similar to Web2 software. So the major differences in security perspectives between Web3 and Web2 mostly narrow down to security considerations of smart contracts vis-a-vis Web2 software.
+11. Open-source & Transparent: Given the emphasis on trust-minimization, Web3 software, especially smart contracts, are expected to be open-source by default.
+    1. The deployed bytecode is also expected to be source code verified (on a service such as Etherscan). Security by obscurity with proprietary code is not part of Web3's ethos.
+    2. All interactions with smart contracts are recorded on the blockchain as transactions. This includes the transactions’ senders, data and outcome. Having complete visibility into the entire history of transactions and state transitions is akin to having a publicly accessible audit log of a system since inception.
+    3. Furthermore, transactions that are still “in flight” and are yet to be confirmed on the blockchain are also publicly visible in pending transaction queues (i.e. mempools) and lend to front-running attacks.
+12. Unstoppable & Immutable: Web3 applications, popularly known as Decentralized Applications ( ÐApps), are expected to be unstoppable and immutable because they run on a decentralized blockchain network.
+    1. There should not be any one entity that can unilaterally decide to stop a running ÐApp or make changes to it. Transactions and data on the blockchain are guaranteed to be immutable unless a majority of the network decides otherwise.
+    2. Smart contracts, in general, are expected (by users) to not have kill switches controlled by deployers. They are also expected to not be arbitrarily upgradeable. Both these stem from the Web3 goal of trust-minimization, i.e. lack of need to trust potentially malicious ÐApp developers. However, this makes fixing security vulnerabilities in deployed code and responding to exploits very challenging.
+13. Pseudonymous Teams & DAOs: Perhaps inspired by Bitcoin’s Satoshi Nakamoto, there is a trend among some project teams in Web3 to be pseudonymous and known only by their online handles.
+    1. One reason for this could be to avoid any potential legal implications in future, given the regulatory uncertainty in this space. This makes it harder to associate any social reputation as it pertains to perceived security trustworthiness of the product or the processes behind its development. It also makes it tricky to hold anyone legally/socially liable or accountable.
+    2. “Trust software not wetware” (i.e. people) is the mantra here. While this may be an extreme view, there are still social processes around rollout and governance of projects which affect security posture.
+    3. To minimise the role and influence of a few privileged individuals in the lifecycle of projects, there is an increasing trend towards governance by token-holding community members — a Decentralized Autonomous Organization (DAO) of pseudonymous token-holding blockchain addresses making voting-based decisions on project treasury spending and protocol changes. While this reduces centralized points of wetware failure, it potentially slows down decision-making on security-critical aspects and may even lead to project forks.
+14. New Architecture, Language & Toolchains: Ethereum has a new virtual machine (EVM) architecture which is a stack-based machine with 256-bit words and associated gas semantics.
+    1. Solidity language continues to dominate smart contracts without much real competition (except Vyper perhaps).
+    2. The associated toolchains which include development environments (e.g. Truffle, Brownie, Hardhat), libraries (e.g. OpenZeppelin), security tools (e.g. Slither, MythX, Securify) and wallets (e.g. Metamask) are maturing but still playing catch up to the exponential growth of the space.
+15. Byzantine Threat Model: The Web3 threat model is based on byzantine faults dealing with arbitrary malicious behavior and governed by mechanism design.
+    1. Given the aspirational absence of trusted intermediaries, everyone and everything is meant to be untrusted by default. Participants in this model include developers, miners/validators, infrastructure providers and users, all of whom could potentially be adversaries.
+    2. This is a fundamentally different threat model from that of Web2 where there are generalized notions of trusted insiders with authorized access to resources/assets that have to be protected against untrusted outsiders (and malicious insiders). Web3 is the ultimate zero-trust scenario.
+16. Keys & Tokens: While “crypto” may indeed mean cryptocurrencies to some non-technical observers, it factually refers to cryptography which is a fundamental bedrock of Web3. As much as we unknowingly use cryptography in the Web2 world, Web3 is taking it to the masses. Cryptographic keys are first-class members of the Web3 world.
+    1. Without the presence of Web2 trusted intermediaries who can otherwise reset passwords or restore accounts/assets from their centralized databases, Web3 ideologically pushes the onus of managing keys (and the assets they control) to end users in their wallets. Loss of private keys (or seed phrases) is irreversible and many assets have been lost to such incidents. This is a significant mindset shift from the Web2 world where passwords have become far too common, security pundits are tired of bemoaning the use of commonly reused simple passwords, password databases continue to be dumped and password-killing technologies continue to evade us. Web2 passwords here symbolize the role of trusted centralized intermediaries that Web3 is seeking to replace.
+    2. Web2 security breaches targeting financial assets (i.e. excluding ransomware and botnets for DDoS) typically involve stealing of financial or personal data which is then sold on the dark web and used for monetary gain. This is getting much harder because of various checks and measures (both technical and regulatory) being put in place (at centralized intermediaries) to reduce such cybersecurity incidents and prevent anomalous asset transfers. When such unauthorised asset transfers do happen, the involved intermediaries may even cooperate to reverse such transactions and make good.
+    3. The notion of assets in Web3 is fundamentally different. Cryptoassets are borderless digital tokens whose accounting ledger is managed by consensus on the blockchain and ownership is determined by access to corresponding cryptographic keys. If someone gets access to your private keys controlling cryptoassets, they can transfer those assets to blockchain addresses controlled by their keys. In a perfectly decentralized world, no intermediary (e.g. centralized exchange) should exist that can reverse such a loss — transactions are immutable. Because there are limited response options, preventive security measures become more critical in the Web3 space.
+17. Composability by Design: Permissionless innovation and censorship-resistance are core aspirational goals of Web3.
+    1. There are numerous stories of Web2 companies that initially enticed developers to build on their platforms only to shut them out later when they were perceived as a competitive threat.
+    2. Web3 applications, especially smart contracts, are open by design and can be accessed permissionlessly by end users and other smart contracts alike.
+    3. This composability lends itself to applications that can be layered on top of others like legos, which is great if everything holds up and new lego toys are reliably built on others. However, this unconstrained composability introduces unexpected cross-systemic dependencies that may trigger invalid assumptions across components (likely built by different teams with different constraints in mind) and expose attack surfaces or modes previously unconsidered.
+    4. This makes characterizing Web3 vulnerabilities and exploit scenarios very challenging without deep knowledge of all interacting components, constraints and configurations.
+18. Compressed Timescales: It feels like innovation in the Web3 space moves at warp speed. Aspects of transparent-development and composability-by-design are strong catalysts to accelerating permissionless and borderless participation which is further incentivized by Internet-native cryptoeconomic tokens — a perfect storm.
+    1. This shrinks innovation timescales by orders of magnitude where new waves of experiments happen over weeks or months instead of the years it typically takes within the walled gardens of Web2. It may seem like the only moat here is the speed of execution.
+    2. This compressed timescale has a tangible impact on security considerations during design, development and deployment. Corners are cut and shortcuts taken to ride new waves of hype. The end result is a poorly tested system that holds millions of dollars worth of tokens but is vulnerable to exploits.
+19. Test-in-Prod: A combination of compressed timescale, unrestricted composability, byzantine threat model and challenges of replicating full state for predicting failure modes of interacting components built with rapidly evolving experimental software/tools in many ways forces realistic testing to happen only in production, i.e. on the “mainnet”. This implies that complex technical and cryptoeconomic exploits may only be discoverable upon production deployment.
+20. Audit-as-a-Silver-Bullet: Secure Software Development Lifecycle (SSDLC) processes for Web2 products have evolved over several decades to a point where they are expected to meet some minimum requirements of a combination of internal validation, external assessments (e.g. product/process audits, penetration testing) and certifications depending on the value of managed assets, anticipated risk, threat model and the market domain of products (e.g. financial sector has stricter regulatory compliance requirements).
+21. Web3 projects seem to increasingly rely on external audits as a stamp of security approval. This is typically justified by the lack of sufficient in-house security expertise. While the optics of this approach seems to falsely convince speculators, this approach is untenable for several reasons:
+    1. Audits currently are very expensive because demand is much greater than supply for top-rated audit teams that have the experience and reputation to analyze complex projects
+    2. Audits are typically commissioned once at the end of project development just before production release
+    3. Upgrades to projects go unaudited for commercial or logistical reasons
+    4. The expectation (from the project team and users) is that audits are a panacea for all vulnerabilities and that the project is “bug-free” after a short audit (typically few weeks)
